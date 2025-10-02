@@ -1,0 +1,23 @@
+server:
+  port: 8080
+
+spring:
+  cache:
+    type: caffeine
+    webflux:
+      codecs:
+        max-in-memory-size: 2MB
+  jpa:
+    hibernate:
+      ddl-auto: update
+  h2:
+    console:
+      enabled: true
+
+smhi:
+  base-url: https://opendata-download-metfcst.smhi.se
+  category: pmp3g
+  version: 2
+  ttl-minutes: 45
+  # Platshållare: {0}=category, {1}=version, {2}=lon, {3}=lat
+  forecast-path: /api/category/{0}/version/{1}/geotype/point/lon/{2}/lat/{3}/data.json
